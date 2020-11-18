@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 2020_11_18_065255) do
     t.date "date", null: false
     t.string "place", null: false
     t.text "purpose", null: false
-    t.integer "relation", null: false
+    t.integer "relation_id", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
