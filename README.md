@@ -17,16 +17,16 @@
 
 ## schedules テーブル
 
-| Column       | Type       | Options                        |
-| ------       | ----       | -------                        |
-| title        | string     | null: false                    |
-| company      | string     | null: false                    |
-| person       | string     | null: false                    |
-| date         | date       | null: false                    |
-| place        | string     | null: false                    |
-| purpose      | text       | null: false                    |
-| relation     | integer    | null: false                    |
-| user         | references | null: false, foreign_key: true |
+| Column          | Type       | Options                        |
+| ------          | ----       | -------                        |
+| title           | string     | null: false                    |
+| company         | string     | null: false                    |
+| person          | string     | null: false                    |
+| date            | date       | null: false                    |
+| place           | string     | null: false                    |
+| purpose         | text       | null: false                    |
+| relation_id     | integer    | null: false                    |
+| user            | references | null: false, foreign_key: true |
 
 ### Association
 

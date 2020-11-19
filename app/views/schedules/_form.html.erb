@@ -1,0 +1,55 @@
+<%= form_with model: schedule, local: true do |f|%>
+
+  <%= render 'shared/error_messages', model: f.object %>
+
+  <div class="field">
+    <%= f.label :title, "タイトル" %><br />
+    <%= f.text_field :title, placeholder:"例：浅草通信への年末挨拶" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :company, "取引先名" %><br />
+    <%= f.text_field :company, placeholder: "例：浅草通信株式会社" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :person, "顧客名" %><br />
+    <%= f.text_field :person , placeholder: "例：山田氏" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date, "日程" %><br />
+  <div class='input-birth-wrap'>
+      <%= raw sprintf(
+                  f.date_select(
+                    :date,
+                    class:'select-birth',
+                    id:"birth-date",
+                    use_month_numbers: true,
+                    prompt:'--',
+                    start_year: (Time.now.year),
+                    end_year: (Time.now.year + 3),
+                    date_separator: '%s'),
+                  "<p> 年 </p>", "<p> 月 </p>") + "<p> 日 </p>" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :place, "場所" %><br />
+    <%= f.text_field :place , placeholder: "例：浅草通信のオフィス" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :purpose, "目的" %><br />
+    <%= f.text_area :purpose, class: :form__text %>
+  </div>
+
+  <div class="field">
+    <%= f.label :relation_id, "往訪歴" %><br />
+    <%= f.collection_select(:relation_id, Relation.all, :id, :name, {}, {class:"select-box", id:"schedule-relation"}) %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "保存する", class: :form__btn  %>
+  </div>
+  
+<% end %>
