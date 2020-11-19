@@ -7,7 +7,7 @@
       <%= link_to "by #{@schedule.user.last_name} #{@schedule.user.first_name}", root_path, class: :prototype__user %>
       <% if current_user == @schedule.user %>
         <div class="prototype__manage">
-          <%= link_to "編集する", root_path, class: :prototype__btn %>
+          <%= link_to "編集する", edit_schedule_path, class: :prototype__btn %>
           <%= link_to "削除する", root_path, class: :prototype__btn %>
         </div>
       <% end %>
