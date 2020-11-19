@@ -1,4 +1,5 @@
 class SchedulesController < ApplicationController
+
   def index
     @schedules = Schedule.all.order(created_at: "DESC")
   end
@@ -18,6 +19,8 @@ class SchedulesController < ApplicationController
 
   def show
     @schedule = Schedule.find(params[:id])
+    @comment = Comment.new
+    @comments = @schedule.comments
   end
 
   def edit
