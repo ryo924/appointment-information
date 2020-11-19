@@ -32,6 +32,15 @@ class SchedulesController < ApplicationController
     end
   end
 
+  def destroy
+    @schedule = Schedule.find(params[:id])
+    if @schedule.destroy
+      redirect_to root_path
+    else
+      redirect_to root_path
+    end
+  end
+
   private
   def schedule_params
     params.require(:schedule).permit(:title, :company, :person, :date, :place, :purpose, :relation_id).merge(user_id: current_user.id)
