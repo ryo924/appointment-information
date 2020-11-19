@@ -1,0 +1,9 @@
+<div class="card">
+  <div class="card__body">
+    <%= link_to schedule.date, root_path, class: :card__title%>
+    <%= link_to schedule.title, root_path, class: :card__title%>
+    <%= link_to schedule.company, root_path, class: :card__title%>
+    <%= link_to schedule.relation.name, root_path, class: :card__title%>
+    <%= link_to "by #{schedule.user.last_name} #{schedule.user.first_name}", root_path, class: :card__user %>
+  </div>
+</div>
