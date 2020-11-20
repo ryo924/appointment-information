@@ -14,6 +14,7 @@ class Schedule < ApplicationRecord
 
   belongs_to :user
   has_many :comments, dependent: :destroy
+  has_one :profile, dependent: :destroy
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :relation

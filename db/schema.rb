@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_19_055938) do
+ActiveRecord::Schema.define(version: 2020_11_19_074419) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "text", null: false
@@ -20,6 +20,18 @@ ActiveRecord::Schema.define(version: 2020_11_19_055938) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["schedule_id"], name: "index_comments_on_schedule_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "customer_first_name"
+    t.string "customer_last_name", null: false
+    t.string "customer_occupation", null: false
+    t.string "position"
+    t.text "note"
+    t.bigint "schedule_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["schedule_id"], name: "index_profiles_on_schedule_id"
   end
 
   create_table "schedules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -53,5 +65,6 @@ ActiveRecord::Schema.define(version: 2020_11_19_055938) do
 
   add_foreign_key "comments", "schedules"
   add_foreign_key "comments", "users"
+  add_foreign_key "profiles", "schedules"
   add_foreign_key "schedules", "users"
 end
