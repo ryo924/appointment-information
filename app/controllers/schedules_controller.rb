@@ -28,6 +28,7 @@ class SchedulesController < ApplicationController
   end
 
   def update
+    @schedule = Schedule.find(params[:id])
     if @schedule.update(schedule_params)
       redirect_to schedule_path(@schedule)
     else

@@ -1,0 +1,38 @@
+<div class="main">
+  <div class="inner">
+    <div class="user__wrapper">
+      <h2 class="page-heading">
+        <%= "顧客情報"%>
+      </h2>
+      <div class="prototype__manage">
+          <%= link_to "編集する", edit_schedule_profile_path, class: :prototype__btn %>
+      </div>
+      <table class="table">
+        <tbody>
+          <tr>
+            <th class="table__col1">名前</th>
+            <td class="table__col2"><%= "#{@profile.customer_last_name} #{@profile.customer_first_name}" %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">所属</th>
+            <td class="table__col2"><%= @profile.customer_occupation %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">役職</th>
+            <td class="table__col2"><%= @profile.position %></td>
+          </tr>
+          <tr>
+            <th class="table__col1">備考</th>
+            <td class="table__col2"><%= @profile.note %></td>
+          </tr>
+        </tbody>
+      </table>
+      <h2 class="page-heading">
+        <%= "ユーザー名さんのプロトタイプ"%>
+      </h2>
+      <div class="user__card">
+        <%# 部分テンプレートでそのユーザーが投稿したプロトタイプ投稿一覧を表示する %>
+      </div>
+    </div>
+  </div>
+</div>

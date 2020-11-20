@@ -23,10 +23,10 @@ ActiveRecord::Schema.define(version: 2020_11_19_074419) do
   end
 
   create_table "profiles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "customer_first_name", null: false
+    t.string "customer_first_name"
     t.string "customer_last_name", null: false
     t.string "customer_occupation", null: false
-    t.string "position", null: false
+    t.string "position"
     t.text "note"
     t.bigint "schedule_id"
     t.datetime "created_at", precision: 6, null: false
