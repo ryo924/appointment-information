@@ -4,7 +4,7 @@
       <p class="prototype__hedding">
         <%= @schedule.title %>
       </p>
-      <%= link_to "by #{@schedule.user.last_name} #{@schedule.user.first_name}", root_path, class: :prototype__user %>
+      <%= link_to "作成者： #{@schedule.user.last_name} #{@schedule.user.first_name}", root_path, class: :prototype__user %>
       <% if current_user == @schedule.user %>
         <div class="prototype__manage">
           <%= link_to "編集する", edit_schedule_path, class: :prototype__btn %>

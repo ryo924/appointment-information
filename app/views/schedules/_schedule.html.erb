@@ -1,9 +1,18 @@
-<div class="card">
-  <div class="card__body">
-    <%= link_to schedule.date, root_path, class: :card__title%>
-    <%= link_to schedule.title, schedule_path(schedule), class: :card__title%>
-    <%= link_to schedule.company, root_path, class: :card__title%>
-    <%= link_to schedule.relation.name, root_path, class: :card__title%>
-    <%= link_to "by #{schedule.user.last_name} #{schedule.user.first_name}", root_path, class: :card__user %>
+<section class="card">
+  <div class="card-content">
+    <h1 class="card-title">
+    <p><%= schedule.date %></p>
+    </h1>
+    <h1 class="card-title">
+    <p><%= schedule.title %></p>
+    </h1>
+    <div class="card-text-flex">
+    <div class="card-text"><%= schedule.company %></div>
+    <div class="card-text"><%= schedule.relation.name %></div>
+    </div>
+    <div class="card-implementor"><%= "作成者:#{schedule.user.last_name} #{schedule.user.first_name}" %></div>
   </div>
-</div>
+  <div class="card-link">
+    <%= link_to "詳細表示", schedule_path(schedule) %>
+  </div>
+</section>
