@@ -1,13 +1,41 @@
 <main class="main">
-  <div class="inner">
     <% if user_signed_in? %>
+    <div id="wrapper" class="mt-5">
       <div class="greeting">
-        こんにちは、
-        <%= link_to "#{current_user.last_name} #{current_user.first_name} さん"%>
+        アポイント一覧
       </div>
-    <% end %>
-    <div class="card__wrapper">
-      <%= render partial: 'schedule', collection: @schedules %>
+        <div class="card-flex">
+        <%= render partial: 'schedule', collection: @schedules %>
+        </div>
     </div>
-  </div>
+    <% else %>
+      <div id="wrapper" class="mt-5">
+        <div class="top">
+          <h1>ApoInfo</h1>
+          <div class="container">
+            <div class="row">
+              <div class="first-left p-5 col-md-6 col-sm 12">
+                <h2>Appointment</h2>
+                <h3>アポイント管理</h3>
+                <p>顧客とのアポイントを記録</p>
+                <p>アポイントに紐づく顧客プロフィールを記録</p>
+              </div>
+              <div class="first-right p-5 col-md-6 col-sm 12">
+                <img src="/assets/appointment.png" alt="Top1">
+              </div>
+            </div>
+            <div class="row">
+              <div class="second-left p-5 col-md-6 col-sm 12">
+                <img src="/assets/information.png" alt="Top2"%>
+              </div>
+              <div class="second-right p-5 col-md-6 col-sm 12">
+                <h2>Information</h2>
+                <h3>情報共有</h3>
+                <p>顧客とのアポイントを一覧表示</p>
+                <p>同僚・上司にアポイント情報を共有</p>
+                <p>アポイントの際に有用な情報をコメントで共有</p>
+              </div>
+            </div>
+          </div>
+    <% end %>
 </main>
