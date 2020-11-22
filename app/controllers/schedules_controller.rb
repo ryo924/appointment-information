@@ -45,6 +45,10 @@ class SchedulesController < ApplicationController
     end
   end
 
+  def search
+    @schedules = Schedule.search(params[:keyword]).order(created_at: "DESC")
+  end
+
   private
   def schedule_params
     params.require(:schedule).permit(:title, :company, :person, :date, :place, :purpose, :relation_id).merge(user_id: current_user.id)

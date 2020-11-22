@@ -19,4 +19,12 @@ class Schedule < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :relation
   
+  def self.search(search)
+    if search != ""
+      Schedule.where('company LIKE(?)', "%#{search}%")
+    else
+      Schedule.all
+    end
+  end
+
 end

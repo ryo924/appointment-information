@@ -1,6 +1,10 @@
 <main class="main">
     <% if user_signed_in? %>
     <div id="wrapper" class="mt-5">
+        <%= form_with(url: search_schedules_path, local: true, method: :get, class: "search-form") do |form| %>
+          <%= form.text_field :keyword, placeholder: "取引先名で検索", class: "search-input" %>
+          <%= form.submit "検索", class: "search-btn" %>
+        <% end %>
       <div class="greeting">
         アポイント一覧
       </div>
